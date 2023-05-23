@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Window from '../components/Window/Window.svelte';
+	import WindowManager from '../components/WindowManager.svelte';
+</script>
+
+<div class="relative w-full h-screen">
+	<WindowManager />
+</div>
