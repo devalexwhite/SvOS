@@ -1,26 +1,10 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import ComputerIcon from './Icons/ComputerIcon.svelte';
-	import CalculatorIcon from './Icons/CalculatorIcon.svelte';
+	import { ApplicationByID } from '../lib/sys/Application';
 
 	const dispatch = createEventDispatcher();
 
-	const applications = [
-		{
-			name: 'Files',
-			path: './Applications/FileManager/Application.svelte',
-			icon: ComputerIcon
-		},
-		{
-			name: 'Calculator',
-			path: './Applications/Calculator/Application.svelte',
-			icon: CalculatorIcon,
-			options: {
-				width: 300,
-				height: 400
-			}
-		}
-	];
+	const applications = [ApplicationByID('org.apps.files'), ApplicationByID('org.apps.calc')];
 
 	const onLaunch = (application) => {
 		dispatch('launch', application);

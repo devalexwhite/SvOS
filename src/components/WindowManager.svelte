@@ -1,9 +1,12 @@
 <script type="mjs">
+	import { ApplicationByID } from '../lib/sys/Application';
+	import { SessionBus } from '../lib/sys/SessionBus';
 	import Launcher from './Launcher.svelte';
 	import Window from './Window/Window.svelte';
 
 	let windows = [];
 	let active = null;
+	let windowCount = 0;
 
 	const createWindow = ({
 		title = 'NO TITLE',
@@ -11,10 +14,11 @@
 		y = 100,
 		width = 600,
 		height = 400,
+		params = {},
 		application
 	}) => {
 		const window = {
-			id: windows.length,
+			id: windowCount,
 			props: {
 				title,
 				left: x,
@@ -23,8 +27,10 @@
 				height,
 				foreground: true
 			},
+			params,
 			application
 		};
+		windowCount += 1;
 
 		focusWindow(null);
 
@@ -51,19 +57,32 @@
 		windows = windowsCopy;
 	};
 
-	const onLaunch = async (app) => {
-		const application = (await import(app.path)).default;
+	const onLaunch = async (application, params = {}) => {
+		const appData = (await import(application.path)).default;
 
 		createWindow({
-			title: app.name,
-			application,
-			...app.options
+			appId: application.id,
+			title: application.name,
+			application: appData,
+			params,
+			...application.options
 		});
 	};
 
 	const onCloseWindow = (id) => {
 		windows = windows.filter((i) => i.id !== id);
 	};
+
+	SessionBus.subscribe((bus) => {
+		if (bus.length && bus[0].type == 'launch') {
+			const message = bus.shift();
+
+			const application = ApplicationByID(message.value);
+
+			onLaunch(application, message?.params);
+			SessionBus.set(bus);
+		}
+	});
 </script>
 
 <div class="relative w-full h-full overflow-hidden">
@@ -80,7 +99,7 @@
 			}}
 			{...window.props}
 		>
-			<svelte:component this={window.application} />
+			<svelte:component this={window.application} {...window.params} />
 		</Window>
 	{/each}
 </div>
