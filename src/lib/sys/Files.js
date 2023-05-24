@@ -2,12 +2,45 @@ import { FileType } from './FileTypes';
 
 const fs = import.meta.glob('../../../static/fs/**/*', { as: 'raw' });
 
-export const loadDir = async () => {
-	const files = [];
+const loadFS = async () => {
+	const files = [
+		{
+			name: 'fs',
+			type: FileType.folder,
+			fullpath: '/',
+			size: 0,
+			children: []
+		}
+	];
 	for (const path in fs) {
 		const data = await fs[path]();
 		const file = buildFile(path, data);
-		files.push(file);
+
+		const dirs = file.fullpath.split('/');
+		dirs.pop();
+
+		let i = files[0];
+		for (const dir of dirs) {
+			if (dir == 'fs') continue;
+
+			const target = i.children.find((f) => f.name == dir && f.type.name == 'Folder');
+
+			if (target) i = target;
+			else {
+				const directory = {
+					name: dir,
+					type: FileType.folder,
+					fullpath: i.fullpath + `/${i.name}`,
+					children: [],
+					size: 0
+				};
+				i.children.push(directory);
+				i = directory;
+			}
+		}
+
+		i.children.push(file);
+		i.size = `${i.children.length} file${i.children.length > 1 ? 's' : ''}`;
 	}
 
 	return files;
@@ -73,5 +106,15 @@ const buildFile = (path, data) => {
 };
 
 export const LsDir = async (pathname) => {
-	return await loadDir();
+	const fs = await loadFS();
+	const dirs = pathname.split('/');
+	let i = fs[0];
+
+	for (const dir of dirs) {
+		if (dir.trim() == '' || dir == 'fs') continue;
+		const target = i.children.find((f) => f.name == dir && f.type.name == 'Folder');
+
+		if (target) i = target;
+	}
+	return i.children;
 };

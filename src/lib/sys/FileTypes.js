@@ -1,6 +1,7 @@
 import FileIcon from '../../components/Icons/FileIcon.svelte';
 import SpreadSheetIcon from '../../components/Icons/SpreadSheet.svelte';
 import ImageIcon from '../../components/Icons/ImageIcon.svelte';
+import FolderIcon from '../../components/Icons/FolderIcon.svelte';
 
 export const FileType = {
 	document: {
@@ -22,5 +23,9 @@ export const FileType = {
 	unknown: {
 		name: 'Unknown',
 		icon: FileIcon
+	},
+	folder: {
+		name: 'Folder',
+		icon: FolderIcon
 	}
 };

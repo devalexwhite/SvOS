@@ -1,18 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
-	import { FileType } from '../../../lib/sys/FileTypes';
-	import { LsDir, loadDir } from '../../../lib/sys/Files';
+	import { LsDir } from '../../../lib/sys/Files';
 	import { SessionBus } from '../../../lib/sys/SessionBus';
-	import { flush_render_callbacks } from 'svelte/internal';
 
-	export let path = '/';
+	export let path = '/fs';
 	let files = [];
 
 	const onResize = () => {};
-
-	const test = () => {
-		loadDir();
-	};
 
 	const loadFiles = async () => {
 		files = await LsDir(path);
@@ -43,6 +37,9 @@
 
 				return [message, ...bus];
 			});
+		} else if (file.type.name == 'Folder') {
+			path += `/${file.name}`;
+			files = await LsDir(path);
 		}
 	};
 
