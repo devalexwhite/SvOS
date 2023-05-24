@@ -32,3 +32,11 @@ TTL Folio consists of a few main pieces:
 ### Status
 
 This project is in a proof of concept state, and is subject to major architectural changes!
+
+**Upcoming**
+- [ ] Folder support for file system and FileManager Application
+- [ ] UX enhancements for Window Manager (loading states, better z-index management)
+- [ ] Taskbar feature for Launcher
+- [ ] First pass of Settings application (Launcher background)
+- [ ] Unified Application Design System (UADS?) to provide UI components for applications (ie. GTK)
+- [ ] Improvements to core applications (Calculator, Text Editor, Image Viewer)
