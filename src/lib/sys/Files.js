@@ -14,6 +14,7 @@ export const loadDir = async () => {
 };
 
 const sizeString = (size) => {
+	const fixedFormat = (num) => (num % 1 == 0 ? num : num.toFixed(1));
 	if (size > 1024) {
 		size /= 1024;
 
@@ -22,17 +23,16 @@ const sizeString = (size) => {
 			if (size > 1024) {
 				size /= 1024;
 				if (size > 1024) {
-					return `${size.toFixed(1)} TB`;
+					return `${fixedFormat(size)} TB`;
 				}
-				return `${size.toFixed(1)} GB`;
+				return `${fixedFormat(size)} GB`;
 			}
-
-			return `${size.toFixed(1)} MB`;
+			return `${fixedFormat(size)} MB`;
 		}
-		return `${size.toFixed(1)} KB`;
+		return `${fixedFormat(size)} kB`;
 	}
 
-	return `${size.toFixed(1)} bytes`;
+	return `${fixedFormat(size)} bytes`;
 };
 
 const buildFile = (path, data) => {

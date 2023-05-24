@@ -1,38 +1,34 @@
-# create-svelte
+# TTL Folio
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+![A picture of a website design to look and operate as a desktop operating system](screenshot.png)
 
-## Creating a project
+A browser-based desktop environment, complete with window manager, file system and an application suite.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Running
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. Clone this project
+2. `npm install`
+3. `npm run dev -- --open`
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## History
 
-## Developing
+This project is being created as a new portfolio website for myself, but I can see it evolving into something else.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Contributing
 
-```bash
-npm run dev
+Feel free to submit PRs with new applications or file handlers!
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Architechure
 
-## Building
+This project was built using Svelte Kit as the base, along with TailwindCSS for styling.
 
-To create a production version of your app:
+TTL Folio consists of a few main pieces:
 
-```bash
-npm run build
-```
+1. Window Manager: Handles creating, destroying and positioning windows. The backbone of the visual piece of the project.
+2. Launcher: The desktop launcher, displays application icons and puts launch messages on the session bus.
+3. Session Bus: A shared piece of state used for communication between pieces. The primary use case is as a "launch queue", allowing other components to instruct Window Manager to create a new window.
+4. File System: Currently the file system uses the `fs` folder in the public, `static` directory. The fs code loads this directory as a blob and executes file system commands based on that blob. Only read is supported at the moment.
 
-You can preview the production build with `npm run preview`.
+### Status
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+This project is in a proof of concept state, and is subject to major architectural changes!

@@ -74,16 +74,16 @@
 							</div>
 						</div>
 					</div>
-					<div class="flex items-center justify-start h-full">
+					<div class="flex items-center justify-end h-full">
 						<div
-							class="block overflow-hidden text-left text-gray-600 whitespace-nowrap text-ellipsis"
+							class="block overflow-hidden text-right text-gray-600 whitespace-nowrap text-ellipsis"
 						>
 							{file.type.name}
 						</div>
 					</div>
-					<div class="flex items-center justify-start h-full">
+					<div class="flex items-center justify-end h-full">
 						<div
-							class="block overflow-hidden text-left text-gray-600 whitespace-nowrap text-ellipsis"
+							class="block overflow-hidden text-right text-gray-600 whitespace-nowrap text-ellipsis"
 						>
 							{file.size}
 						</div>
