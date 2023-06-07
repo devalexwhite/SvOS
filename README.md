@@ -18,7 +18,7 @@ This project is being created as a new portfolio website for myself, but I can s
 
 Feel free to submit PRs with new applications or file handlers!
 
-### Architechure
+### Architecture
 
 This project was built using Svelte Kit as the base, along with TailwindCSS for styling.
 
@@ -34,6 +34,7 @@ TTL Folio consists of a few main pieces:
 This project is in a proof of concept state, and is subject to major architectural changes!
 
 **Upcoming**
+
 - [ ] Folder support for file system and FileManager Application
 - [ ] UX enhancements for Window Manager (loading states, better z-index management)
 - [ ] Taskbar feature for Launcher

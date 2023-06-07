@@ -1,5 +1,6 @@
 import CalculatorIcon from '../../components/Icons/CalculatorIcon.svelte';
 import ComputerIcon from '../../components/Icons/ComputerIcon.svelte';
+import PaintBrushIcon from '../../components/Icons/PaintBrushIcon.svelte';
 
 export const ApplicationByID = (id) => {
 	return ApplicationList.find((app) => app.id == id);
@@ -40,6 +41,16 @@ export const ApplicationList = [
 		options: {
 			width: 300,
 			height: 400
+		}
+	},
+	{
+		id: 'org.apps.uadsviewer',
+		name: 'UADS',
+		path: './Applications/UADSViewer/Application.svelte',
+		icon: PaintBrushIcon,
+		options: {
+			width: 700,
+			height: 500
 		}
 	}
 ];

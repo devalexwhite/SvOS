@@ -41,7 +41,7 @@
 	on:mousedown={() => dispatch('focus')}
 >
 	<div
-		class="flex flex-row items-center justify-between w-full h-8 px-3 text-gray-500 bg-gray-100 cursor-move"
+		class="flex flex-row items-center justify-between w-full h-8 px-3 cursor-move text-light-primary-contrast bg-light-primary"
 		on:mousedown={onDragStart}
 	>
 		<span class="text-base font-semibold pointer-events-none">
@@ -50,7 +50,7 @@
 		<HeaderButtons on:close />
 		<!-- <HeaderButtons /> -->
 	</div>
-	<div class="w-full h-full p-2">
+	<div class="w-full h-full p-2 bg-light-background">
 		<slot />
 	</div>
 </div>
