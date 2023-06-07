@@ -1,4 +1,4 @@
-# TTL Folio
+# SVOS
 
 ![A picture of a website design to look and operate as a desktop operating system](screenshot.png)
 
