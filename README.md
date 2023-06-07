@@ -22,7 +22,7 @@ Feel free to submit PRs with new applications or file handlers!
 
 This project was built using Svelte Kit as the base, along with TailwindCSS for styling.
 
-TTL Folio consists of a few main pieces:
+SVOS consists of a few main pieces:
 
 1. Window Manager: Handles creating, destroying and positioning windows. The backbone of the visual piece of the project.
 2. Launcher: The desktop launcher, displays application icons and puts launch messages on the session bus.
