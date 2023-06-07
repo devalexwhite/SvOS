@@ -34,7 +34,7 @@
 </script>
 
 <div
-	class="rounded border border-gray-50 overflow-hidden absolute resize bg-white {active
+	class="rounded border-2 border-light-primary overflow-hidden absolute resize bg-white {active
 		? 'shadow-lg  select-none'
 		: 'shadow'} {foreground ? 'z-50' : 'z-40'}"
 	style="left: {left}px;top: {top}px;width: {width}px;height: {height}px;"
