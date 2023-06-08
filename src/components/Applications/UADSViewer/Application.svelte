@@ -3,7 +3,7 @@
 	import ButtonOutlined from '../../UADS/Button/ButtonOutlined.svelte';
 </script>
 
-<div class="w-full h-full bg-white">
+<div class="w-full bg-white">
 	<h1>UADS Viewer</h1>
 	<p class="mb-3">Component library for the Unified Application Design System (UADS).</p>
 
