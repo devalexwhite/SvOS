@@ -47,6 +47,7 @@
 		<div
 			class="absolute top-0 left-0 z-20 flex flex-row items-center justify-end w-full h-full px-2 opacity-100"
 		>
+			<slot name="actions" />
 			<HeaderButtons on:close />
 		</div>
 		<!-- <HeaderButtons /> -->

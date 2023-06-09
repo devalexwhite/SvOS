@@ -2,6 +2,9 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		fontFamily: {
+			sans: ['Fira Code', 'monospace']
+		},
 		extend: {
 			colors: {
 				light: {
