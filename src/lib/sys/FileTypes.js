@@ -1,28 +1,28 @@
-import FileIcon from '../../components/Icons/FileIcon.svelte';
+import DocumentIcon from '../../components/Icons/FileTypes/DocumentIcon.svg?dataurl=enc';
 import SpreadSheetIcon from '../../components/Icons/SpreadSheet.svelte';
 import ImageIcon from '../../components/Icons/ImageIcon.svelte';
-import FolderIcon from '../../components/Icons/FolderIcon.svelte';
+import FolderIcon from '../../components/Icons/FileTypes/FolderIcon.svg?dataurl=enc';
 
 export const FileType = {
 	document: {
 		name: 'Document',
-		icon: FileIcon
+		icon: DocumentIcon
 	},
 	pdf: {
 		name: 'PDF',
-		icon: FileIcon
+		icon: DocumentIcon
 	},
 	spreadsheet: {
 		name: 'Spreadsheet',
-		icon: SpreadSheetIcon
+		icon: DocumentIcon
 	},
 	image: {
 		name: 'Image',
-		icon: ImageIcon
+		icon: DocumentIcon
 	},
 	unknown: {
 		name: 'Unknown',
-		icon: FileIcon
+		icon: DocumentIcon
 	},
 	folder: {
 		name: 'Folder',

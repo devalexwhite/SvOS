@@ -2,8 +2,6 @@
 	import { onMount } from 'svelte';
 	import { LsDir } from '../../../lib/sys/Files';
 	import { SessionBus } from '../../../lib/sys/SessionBus';
-	import ButtonContained from '../../UADS/Button/ButtonContained.svelte';
-	import ButtonOutlined from '../../UADS/Button/ButtonOutlined.svelte';
 
 	export let path = '/fs';
 	let files = [];
@@ -51,8 +49,6 @@
 </script>
 
 <div class="px-2 py-1 overflow-auto" on:resize={onResize}>
-	<ButtonContained>Test</ButtonContained>
-	<ButtonOutlined>Test 2</ButtonOutlined>
 	<ul class="flex flex-col">
 		{#each files as file}
 			<li
@@ -65,8 +61,8 @@
 				>
 					<div class="flex items-center justify-start h-full col-span-2">
 						<div class="relative flex flex-row items-center w-full">
-							<div class="flex justify-center w-8 mr-1">
-								<svelte:component this={file.type.icon} />
+							<div class="flex justify-center h-4 mr-1">
+								<img src={file.logo} width="20" height="20" />
 							</div>
 							<div
 								class="relative block w-full overflow-hidden text-left whitespace-nowrap text-ellipsis"
