@@ -33,6 +33,9 @@ SvOS consists of a few main pieces:
 
 This project is in a proof of concept state, and is subject to major architectural changes!
 
+Updates available on the project's Gemini Capsule:
+[gemini://alextheuxguy.mooo.com/softwareprojects/svos/](gemini://alextheuxguy.mooo.com/softwareprojects/svos/)
+
 **Upcoming**
 
 - [ ] Folder support for file system and FileManager Application
