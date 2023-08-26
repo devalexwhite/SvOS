@@ -1,6 +1,6 @@
 import { FileType } from './FileTypes';
 
-const fs = import.meta.glob('../../../static/fs/**/*', { as: 'raw' });
+const fs = import.meta.glob('../../fs/**/*', { as: 'raw' });
 
 const loadFS = async () => {
 	const files = [
@@ -16,8 +16,7 @@ const loadFS = async () => {
 		const data = await fs[path]();
 		const file = buildFile(path, data);
 
-		const dirs = file.fullpath.split('/');
-		dirs.pop();
+		const dirs = file.fullpath.split('/').slice(2)
 
 		let i = files[0];
 		for (const dir of dirs) {

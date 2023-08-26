@@ -1,8 +1,5 @@
-<script>
-	import Window from '../components/Window/Window.svelte';
-	import WindowManager from '../components/WindowManager.svelte';
+<script lang="ts">
+	import Wm from '../lib/components/wm/wm.svelte';
 </script>
 
-<div class="relative w-full h-screen">
-	<WindowManager />
-</div>
+<div class="w-screen h-screen overflow-hidden"><Wm /></div>

@@ -1,4 +1,4 @@
-<script type="mjs">
+<script>
 	import { ApplicationByID } from '../lib/sys/Application';
 	import { SessionBus } from '../lib/sys/SessionBus';
 	import Launcher from './Launcher.svelte';

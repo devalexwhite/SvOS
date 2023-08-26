@@ -16,10 +16,7 @@
 	};
 </script>
 
-<div
-	class="z-10 flex flex-col w-full h-full gap-6 p-8 bg-cover"
-	style="background-image: url('/fs/wallpapers/japan.jpg')"
->
+<div class="z-10 flex flex-col w-full h-full gap-6 p-8 bg-cover">
 	<Taskbar />
 	{#each applications as app}
 		<button
