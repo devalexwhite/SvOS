@@ -1,6 +1,6 @@
 import DocumentIcon from '../../components/Icons/FileTypes/DocumentIcon.svg?dataurl=enc';
-import SpreadSheetIcon from '../../components/Icons/SpreadSheet.svelte';
-import ImageIcon from '../../components/Icons/ImageIcon.svelte';
+import SpreadSheetIcon from '../../components/Icons/FileTypes/SpreadSheetIcon.svg?dataurl=enc';
+import ImageIcon from '../../components/Icons/FileTypes/ImageIcon.svg?dataurl=enc';
 import FolderIcon from '../../components/Icons/FileTypes/FolderIcon.svg?dataurl=enc';
 
 export const FileType = {
@@ -14,11 +14,11 @@ export const FileType = {
 	},
 	spreadsheet: {
 		name: 'Spreadsheet',
-		icon: DocumentIcon
+		icon: SpreadSheetIcon
 	},
 	image: {
 		name: 'Image',
-		icon: DocumentIcon
+		icon: ImageIcon
 	},
 	unknown: {
 		name: 'Unknown',

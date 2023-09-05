@@ -44,7 +44,8 @@
 	};
 
 	onMount(async () => {
-		loadFiles();
+		await loadFiles();
+		console.log(files)
 	});
 </script>
 
@@ -62,7 +63,7 @@
 					<div class="flex items-center justify-start h-full col-span-2">
 						<div class="relative flex flex-row items-center w-full">
 							<div class="flex justify-center h-4 mr-1">
-								<img src={file.logo} width="20" height="20" />
+								<img src={file.type.icon} width="20" height="20" />
 							</div>
 							<div
 								class="relative block w-full overflow-hidden text-left whitespace-nowrap text-ellipsis"
