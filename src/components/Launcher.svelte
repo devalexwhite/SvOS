@@ -23,11 +23,19 @@
 	<Taskbar />
 	{#each applications as app}
 		<button
-			class="flex flex-col items-center justify-center w-16 h-16 gap-1 p-1 rounded-lg hover:ring-2 ring-light-primary ring-offset-1"
+			class="flex flex-col items-center justify-center w-16 h-16 gap-1 p-1 rounded-lg group"
 			on:click={() => onLaunch(app)}
 		>
-			<svelte:component this={app.icon} />
-			<span class="text-sm font-light text-center text-light-primary-contrast">{app.name}</span>
+			<span class="text-white">
+				<svelte:component this={app.icon} />			
+			</span>
+			<span class="text-sm font-light text-center text-white text-shadow font-semibold max-w-16 wrap-break p-1 group-hover:bg-blue-600 rounded-lg">{app.name}</span>
 		</button>
 	{/each}
 </div>
+
+<style type="text/css">
+	.text-shadow {
+		text-shadow: 1px 1px 4px black;
+	}
+</style>

@@ -89,6 +89,7 @@ const buildFile = (path, data) => {
 		case '.docx':
 		case '.odf':
 		case '.md':
+		case '.json':
 			file.type = FileType.document;
 			break;
 		case '.png':

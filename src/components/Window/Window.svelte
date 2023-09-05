@@ -40,7 +40,7 @@
 	style="left: {left}px;top: {top}px;width: {width}px;height: {height}px;"
 	on:mousedown={() => dispatch('focus')}
 >
-	<div class="relative w-full h-10 cursor-move" on:mousedown={onDragStart}>
+	<div class="relative w-full h-8 cursor-move" on:mousedown={onDragStart}>
 		<div
 			class="absolute top-0 left-0 z-10 w-full h-full text-light-primary-contrast bg-light-primary/30 backdrop-blur"
 		/>
