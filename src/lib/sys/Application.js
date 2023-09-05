@@ -10,13 +10,13 @@ export const ApplicationList = [
 	{
 		id: 'org.apps.files',
 		name: 'Files',
-		path: './Applications/FileManager/Application.svelte',
+		appData: () => import('../../components/Applications/FileManager/Application.svelte'),
 		icon: ComputerIcon
 	},
 	{
 		id: 'org.apps.imageviewer',
 		name: 'Image Viewer',
-		path: './Applications/ImageViewer/Application.svelte',
+		appData: () => import('../../components/Applications/ImageViewer/Application.svelte'),
 		icon: ComputerIcon,
 		options: {
 			width: 500,
@@ -26,7 +26,7 @@ export const ApplicationList = [
 	{
 		id: 'org.apps.editor',
 		name: 'Text Editor',
-		path: './Applications/TextEditor/Application.svelte',
+		appData: () => import('../../components/Applications/TextEditor/Application.svelte'),
 		icon: ComputerIcon,
 		options: {
 			width: 700,
@@ -36,7 +36,7 @@ export const ApplicationList = [
 	{
 		id: 'org.apps.calc',
 		name: 'Calculator',
-		path: './Applications/Calculator/Application.svelte',
+		appData: () => import('../../components/Applications/Calculator/Application.svelte'),
 		icon: CalculatorIcon,
 		options: {
 			width: 300,
@@ -46,7 +46,7 @@ export const ApplicationList = [
 	{
 		id: 'org.apps.uadsviewer',
 		name: 'UADS',
-		path: './Applications/UADSViewer/Application.svelte',
+		appData: () => import('../../components/Applications/UADSViewer/Application.svelte'),
 		icon: PaintBrushIcon,
 		options: {
 			width: 700,

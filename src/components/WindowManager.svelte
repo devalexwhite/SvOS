@@ -58,12 +58,12 @@
 	};
 
 	const onLaunch = async (application, params = {}) => {
-		const appData = (await import(application.path)).default;
-
+		const appData = await application.appData();
+		console.log(appData)
 		createWindow({
 			appId: application.id,
 			title: application.name,
-			application: appData,
+			application: appData.default,
 			params,
 			...application.options
 		});
