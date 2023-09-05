@@ -4,6 +4,8 @@
 
 A browser-based desktop environment, complete with window manager, file system and an application suite.
 
+[https://lustrous-starburst-742659.netlify.app/](Demo here)
+
 ## Running
 
 1. Clone this project
@@ -33,12 +35,9 @@ SvOS consists of a few main pieces:
 
 This project is in a proof of concept state, and is subject to major architectural changes!
 
-Updates available on the project's Gemini Capsule:
-[gemini://alextheuxguy.mooo.com/softwareprojects/svos/](gemini://alextheuxguy.mooo.com/softwareprojects/svos/)
-
 **Upcoming**
 
-- [ ] Folder support for file system and FileManager Application
+- [x] Folder support for file system and FileManager Application
 - [ ] UX enhancements for Window Manager (loading states, better z-index management)
 - [ ] Taskbar feature for Launcher
 - [ ] First pass of Settings application (Launcher background)
