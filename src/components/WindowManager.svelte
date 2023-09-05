@@ -59,7 +59,6 @@
 
 	const onLaunch = async (application, params = {}) => {
 		const appData = await application.appData();
-		console.log(appData)
 		createWindow({
 			appId: application.id,
 			title: application.name,

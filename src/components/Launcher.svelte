@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { ApplicationByID } from '../lib/sys/Application';
 	import Taskbar from './Taskbar.svelte';
+	import { getIconPath } from '../lib/sys/IconResolver';
 
 	const dispatch = createEventDispatcher();
 
@@ -27,9 +28,17 @@
 			on:click={() => onLaunch(app)}
 		>
 			<span class="text-white">
-				<svelte:component this={app.icon} />			
+				<img
+					src={getIconPath(app.icon.category, app.icon.name)}
+					width="32"
+					height="32"
+					alt="Icon"
+				/>
 			</span>
-			<span class="text-sm font-light text-center text-white text-shadow font-semibold max-w-16 wrap-break p-1 group-hover:bg-blue-600 rounded-lg">{app.name}</span>
+			<span
+				class="p-1 text-sm font-light font-semibold text-center text-white rounded-lg text-shadow max-w-16 wrap-break group-hover:bg-blue-600"
+				>{app.name}</span
+			>
 		</button>
 	{/each}
 </div>

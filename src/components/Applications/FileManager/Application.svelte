@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { LsDir } from '../../../lib/sys/Files';
 	import { SessionBus } from '../../../lib/sys/SessionBus';
+	import { getIconPath } from '../../../lib/sys/IconResolver';
 
 	let path = 'fs';
 	let files = [];
@@ -13,24 +14,13 @@
 	};
 
 	const onOpen = async (file) => {
-		if (file.type.name == 'Image') {
+		if (file.type.launch) {
 			SessionBus.update((bus) => {
 				const message = {
 					type: 'launch',
-					value: 'org.apps.imageviewer',
+					value: file.type.launch,
 					params: {
-						src: file.fullpath
-					}
-				};
-
-				return [message, ...bus];
-			});
-		} else if (file.type.name == 'Document') {
-			SessionBus.update((bus) => {
-				const message = {
-					type: 'launch',
-					value: 'org.apps.editor',
-					params: {
+						src: file.fullpath,
 						data: file.data
 					}
 				};
@@ -44,18 +34,17 @@
 	};
 
 	const setPath = (segmentIndex) => {
-		const segments = path.split("/")
-		let final = "";
+		const segments = path.split('/');
+		let final = '';
 
 		for (var i = 0; i <= segmentIndex; i++) {
-			final += segments[i]
-			if (i < segmentIndex) final += "/"
+			final += segments[i];
+			if (i < segmentIndex) final += '/';
 		}
 
-
-		path = final
-		loadFiles(final)
-	}
+		path = final;
+		loadFiles(final);
+	};
 
 	onMount(async () => {
 		await loadFiles(path);
@@ -63,13 +52,27 @@
 </script>
 
 <div class="overflow-auto" on:resize={onResize}>
-	<div class="w-full py-2 border-b border-gray-200 px-3">
+	<div class="w-full px-3 py-2 border-b border-gray-200">
 		<ul class="flex flex-row w-full space-x-3">
-			{#each path.split("/") as segment,i}
-				<li class={`rounded-lg hover:bg-blue-200 px-2 py-1 text-sm ${i == path.split("/").length - 1 ? "bg-blue-400 text-white" : "text-gray-700"}`}>
+			{#each path.split('/') as segment, i}
+				<li
+					class={`rounded-lg hover:bg-blue-200 px-2 py-1 text-sm ${
+						i == path.split('/').length - 1 ? 'bg-blue-400 text-white' : 'text-gray-700'
+					}`}
+				>
 					<button on:click={() => setPath(i)} class="w-full h-full">
-						{#if segment == "fs"}
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" ></path></svg>
+						{#if segment == 'fs'}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								class="w-4 h-4"
+								><path
+									fill-rule="evenodd"
+									d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+									clip-rule="evenodd"
+								/></svg
+							>
 						{:else}
 							{segment}
 						{/if}
@@ -91,7 +94,12 @@
 					<div class="flex items-center justify-start h-full col-span-2">
 						<div class="relative flex flex-row items-center w-full">
 							<div class="flex justify-center h-4 mr-1">
-								<img src={file.type.icon} width="20" height="20" />
+								<img
+									src={getIconPath(file.type.icon.category, file.type.icon.name)}
+									width="20"
+									height="20"
+									alt="Icon"
+								/>
 							</div>
 							<div
 								class="relative block w-full overflow-hidden text-left whitespace-nowrap text-ellipsis"
@@ -100,16 +108,16 @@
 							</div>
 						</div>
 					</div>
-					<div class="flex items-center justify-end h-full">
+					<div class="flex items-center justify-end h-full pr-2">
 						<div
 							class="block overflow-hidden text-right text-gray-600 whitespace-nowrap text-ellipsis"
 						>
 							{file.type.name}
 						</div>
 					</div>
-					<div class="flex items-center justify-end h-full">
+					<div class="flex items-center justify-start h-full pl-2">
 						<div
-							class="block overflow-hidden text-right text-gray-600 whitespace-nowrap text-ellipsis"
+							class="block overflow-hidden text-left text-gray-600 whitespace-nowrap text-ellipsis"
 						>
 							{file.size}
 						</div>
